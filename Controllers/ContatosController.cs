@@ -22,5 +22,26 @@ namespace AgendaTelefonicaAPI.Controllers
 			return _service.GetAll();
 		}
 
+		[HttpGet("{id}", Name = "GetContato")]
+		public IActionResult GetById(int id) {
+			var contato = _service.Find(id);
+			if(contato.Equals(null)) {
+				return NotFound();
+			}
+
+			return new ObjectResult(contato);
+		}
+
+		[HttpPost]
+		public IActionResult AddContato([FromBody] Contato contato) {
+			if(contato.Equals(null)) {
+				return BadRequest();
+			} else {
+				_service.Add(contato);
+
+				return CreatedAtRoute("GetContato", new { contato.id }, contato);
+			}
+		}
+
     }
 }

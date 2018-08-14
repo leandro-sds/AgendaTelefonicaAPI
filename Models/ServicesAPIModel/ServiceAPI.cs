@@ -19,8 +19,8 @@ namespace AgendaTelefonicaAPI.Models.ServicesAPIModel
 			_context.SaveChanges();
 		}
 
-		public Contato Find(string nome) {
-			return _context.Contatos.FirstOrDefault(u => u.Nome == nome);
+		public Contato Find(int id) {
+			return _context.Contatos.FirstOrDefault(u => u.id == id);
 		}
 
 		public IEnumerable<Contato> GetAll() {

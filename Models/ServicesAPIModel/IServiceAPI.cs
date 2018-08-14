@@ -12,7 +12,7 @@ namespace AgendaTelefonicaAPI.Models.ServicesAPIModel
 
 		IEnumerable<Contato> GetAll();
 
-		Contato Find(string nome);
+		Contato Find(int id);
 
 		void Remove(string nome);
 
